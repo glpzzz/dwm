@@ -1,8 +1,28 @@
 dwm - dynamic window manager
 ============================
 
-dwm is an extremely fast, small, and dynamic window manager for X. This is my personal build. Every branch on the repo is dwm patched with an one of the patches I find useful.
+dwm is an extremely fast, small, and dynamic window manager for X.
 
+**This is my personal build.** Every branch on the repo is dwm patched with an one of the patches I find useful.
+
+Master branch is in sync with the original dwm project at
+https://git.suckless.org/dwm
+
+Single patched branches
+-----------------------
+
+- awesomebar
+- focusonclick
+- holdbar-modkey
+- killunsel
+- noborder
+- pertag
+
+My custom build
+---------------
+
+The branch **patched2** is the result of merging the original dwm with the
+patched versions. 
 
 Requirements
 ------------
