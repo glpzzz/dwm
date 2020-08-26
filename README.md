@@ -11,12 +11,12 @@ https://git.suckless.org/dwm
 Single patched branches
 -----------------------
 
-- awesomebar
-- focusonclick
-- holdbar-modkey
-- killunsel
-- noborder
-- pertag
+- [awesomebar](https://dwm.suckless.org/patches/awesomebar)
+- [focusonclick](https://dwm.suckless.org/patches/focusonclick/)
+- [holdbar-modkey](https://dwm.suckless.org/patches/holdbar/)
+- [killunsel](https://dwm.suckless.org/patches/killunsel/)
+- [noborder](https://dwm.suckless.org/patches/noborder/)
+- [pertag](https://dwm.suckless.org/patches/pertag/)
 
 My custom build
 ---------------
