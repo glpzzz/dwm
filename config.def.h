@@ -3,7 +3,7 @@
 /* appearance */
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 5;       /* snap pixel */
-static const int showbar            = 0;        /* 0 means no bar */
+static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "monospace:size=9" };
 static const char dmenufont[]       = "monospace:size=9";
@@ -60,6 +60,38 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "x-terminal-emulator", NULL };
 
+static const char *comptontgl[]     = { "toggle-compton", NULL };
+static const char *dwmreset[]       = { "restart-dwm", NULL };
+static const char *filecmd[]        = { "x-terminal-emulator", "-e", "ranger", NULL };
+static const char *fileman[]        = { "pcmanfm-qt", NULL };
+static const char *helpmenu[]       = { "dmenu_man", NULL };
+static const char *killcmd[]        = { "xkill", NULL };
+static const char *leave[]          = { "quitmenu", NULL };
+static const char *locker[]         = { "slock", NULL };
+static const char *mailman[]        = { "thunderbird", NULL };
+static const char *monitormenu[]    = { "monitormenu", NULL };
+static const char *musicp[]         = { "x-terminal-emulator", "-e", "ncmpcpp", NULL };
+static const char *netman[]         = { "x-terminal-emulator", "-e", "nmtui", NULL };
+static const char *pasmenu[]        = { "passmenu", NULL };
+static const char *procman[]        = { "x-terminal-emulator", "-e", "htop", NULL };
+static const char *roficmd[]        = { "rofi", "-show", "drun", NULL };
+static const char *screensh[]       = { "flameshot", "gui", NULL };
+static const char *searchmenu[]     = { "selsearchmenu", NULL };
+static const char *settings[]       = { "lxqt-config", NULL };
+static const char *telegram[]       = { "telegram", NULL };
+static const char *volman[]         = { "x-terminal-emulator", "-e", "pulsemixer", NULL };
+static const char *webmenu[]        = { "dmenu_websearch", NULL };
+
+static const char *upvol[]          = {"pulsemixer", "--change-volume", "+10", NULL };
+static const char *dovol[]          = {"pulsemixer", "--change-volume", "-10", NULL };
+static const char *muvol[]          = {"pulsemixer", "--toggle-mute", NULL };
+
+static const char *mediaprev[]      = {"mpc", "prev", NULL };
+static const char *mediatoggle[]    = {"mpc", "toggle", NULL };
+static const char *medianext[]      = {"mpc", "next", NULL };
+
+#include <X11/XF86keysym.h>
+
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_space,  spawn,          {.v = dmenucmd } },
@@ -67,6 +99,8 @@ static Key keys[] = {
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = -1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = +1 } },
+	{ Mod1Mask,                     XK_Tab,    focusstack,     {.i = +1 } },
+	{ Mod1Mask|ShiftMask,           XK_Tab,    focusstack,     {.i = -1 } },
 	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
 	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.01} },
@@ -94,6 +128,43 @@ static Key keys[] = {
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
 	{ 0,                            HOLDKEY,   holdbar,        {0} },
+	/* app launchers */
+    { MODKEY,                       XK_a,      spawn,          {.v = volman } },
+    { MODKEY,                       XK_e,      spawn,          {.v = fileman } },
+    { MODKEY|ShiftMask,             XK_e,      spawn,          {.v = filecmd } },
+    { MODKEY|ShiftMask,             XK_r,      spawn,          {.v = dwmreset} },
+    { MODKEY,                       XK_o,      spawn,          {.v = monitormenu } },
+    { MODKEY,                       XK_p,      spawn,          {.v = pasmenu } },
+    { MODKEY,                       XK_n,      spawn,          {.v = netman } },
+    { MODKEY,                       XK_s,      spawn,          {.v = searchmenu } },
+    { MODKEY,                       XK_u,      spawn,          {.v = musicp } },
+    { MODKEY,                       XK_w,      spawn,          {.v = webmenu } },
+    { MODKEY,                       XK_F1,     spawn,          {.v = helpmenu } },
+    { MODKEY,                       XK_F10,    spawn,          {.v = telegram } },
+    { MODKEY,                       XK_Delete, spawn,          {.v = locker } },
+    { MODKEY,                       XK_BackSpace, spawn,       {.v = killcmd } },
+    { MODKEY,                       XK_Escape, spawn,          {.v = leave } },
+    { Mod1Mask,                     XK_space,  spawn,          {.v = roficmd } },
+    { ControlMask,                  XK_Escape, spawn,          {.v = settings } },
+    { ControlMask|ShiftMask,        XK_Escape, spawn,          {.v = procman } },
+    { 0,                            XK_Print,  spawn,          {.v = screensh } },
+
+    { MODKEY,                       XK_F12,    spawn,          {.v = comptontgl } },
+
+    { 0,                            XF86XK_Calculator,          spawn, {.v = termcmd } },
+    { 0,                            XF86XK_HomePage,            spawn, {.v = fileman } },
+    { 0,                            XF86XK_Tools,               spawn, {.v = musicp } },
+    { 0,                            XF86XK_Mail,                spawn, {.v = mailman } },
+    { 0,                            XF86XK_Search,              spawn, {.v = webmenu } },
+
+    { 0,                            XF86XK_AudioLowerVolume,    spawn, {.v = dovol } },
+    { 0,                            XF86XK_AudioRaiseVolume,    spawn, {.v = upvol } },
+    { 0,                            XF86XK_AudioMute,           spawn, {.v = muvol } },
+
+    { 0,                            XF86XK_AudioPrev,           spawn, {.v = mediaprev } },
+    { 0,                            XF86XK_AudioPlay,           spawn, {.v = mediatoggle } },
+    { 0,                            XF86XK_AudioNext,           spawn, {.v = medianext } },
+
 };
 
 /* button definitions */
