@@ -3,18 +3,18 @@
 /* appearance */
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 5;       /* snap pixel */
-static const int showbar            = 1;        /* 0 means no bar */
+static const int showbar            = 0;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "JetBrains Mono:size=9" };
+static const char *fonts[]          = { "Fira Code:size=9" };
 static const char col_gray1[]       = "#000000";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
-static const char col_cyan[]        = "#000035";
+static const char col_cyan[]        = "#300a24";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
-	[SchemeNorm] = { "#ffffff", col_gray1, "#ffffff" },
-	[SchemeSel]  = { "#ffffff", col_cyan,  col_cyan  },
+	[SchemeNorm] = { "#ffffff", col_gray1, "#228dd1" },
+	[SchemeSel]  = { "#ffffff", "#300a24",  "#dd722e"  },
 	[SchemeHid]  = { "#ff0000",  col_gray1, col_cyan  },
 };
 
@@ -33,7 +33,7 @@ static const Rule rules[] = {
 };
 
 /* layout(s) */
-static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
+static const float mfact     = 0.5; /* factor of master area size [0.05..0.95] */
 static const int nmaster     = 1;    /* number of clients in master area */
 static const int resizehints = 0;    /* 1 means respect size hints in tiled resizals */
 
@@ -59,6 +59,7 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "rofi", "-show", "drun", NULL };
 static const char *termcmd[]  = { "x-terminal-emulator", NULL };
 
+static const char *calculator[]     = { "x-terminal-emulator", "-e", "qalc", NULL };
 static const char *comptontgl[]     = { "toggle-compton", NULL };
 static const char *dwmreset[]       = { "restart-dwm", NULL };
 static const char *filecmd[]        = { "x-terminal-emulator", "-e", "ranger", NULL };
@@ -77,7 +78,6 @@ static const char *roficmd[]        = { "rofi", "-show", "drun", NULL };
 static const char *screensh[]       = { "flameshot", "gui", NULL };
 static const char *searchmenu[]     = { "selsearchmenu", NULL };
 static const char *settings[]       = { "lxqt-config", NULL };
-static const char *telegram[]       = { "telegram", NULL };
 static const char *volman[]         = { "x-terminal-emulator", "-e", "pulsemixer", NULL };
 static const char *webmenu[]        = { "dmenu_websearch", NULL };
 
@@ -127,6 +127,7 @@ static Key keys[] = {
 	TAGKEYS(                        XK_9,                      8)
 	/* app launchers */
     { MODKEY,                       XK_a,      spawn,          {.v = volman } },
+    { MODKEY,                       XK_c,      spawn,          {.v = calculator } },
     { MODKEY,                       XK_e,      spawn,          {.v = fileman } },
     { MODKEY|ShiftMask,             XK_e,      spawn,          {.v = filecmd } },
     { MODKEY|ShiftMask,             XK_r,      spawn,          {.v = dwmreset} },
@@ -137,7 +138,6 @@ static Key keys[] = {
     { MODKEY,                       XK_u,      spawn,          {.v = musicp } },
     { MODKEY,                       XK_w,      spawn,          {.v = webmenu } },
     { MODKEY,                       XK_F1,     spawn,          {.v = helpmenu } },
-    { MODKEY,                       XK_F10,    spawn,          {.v = telegram } },
     { MODKEY,                       XK_Delete, spawn,          {.v = locker } },
     { MODKEY,                       XK_BackSpace, spawn,       {.v = killcmd } },
     { MODKEY,                       XK_Escape, spawn,          {.v = leave } },
