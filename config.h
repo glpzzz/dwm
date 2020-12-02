@@ -4,7 +4,7 @@
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 5;       /* snap pixel */
 static const int showbar            = 0;        /* 0 means no bar */
-static const int topbar             = 0;        /* 0 means bottom bar */
+static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "Fira Code:size=9" };
 static const char col_gray1[]       = "#000000";
 static const char col_gray2[]       = "#444444";
@@ -13,7 +13,7 @@ static const char col_gray4[]       = "#eeeeee";
 static const char col_cyan[]        = "#300a24";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
-	[SchemeNorm] = { "#ffffff", col_gray1, "#228dd1" },
+	[SchemeNorm] = { "#ffffff", col_gray1, col_gray2 },
 	[SchemeSel]  = { "#ffffff", "#300a24",  "#dd722e"  },
 	[SchemeHid]  = { "#ff0000",  col_gray1, col_cyan  },
 };
@@ -26,10 +26,10 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Gimp",     NULL,       NULL,       0,            0,           -1 },
-	{ "Firefox",  NULL,       NULL,       0,            0,           -1 },
-	{ "ssh-askpass",  NULL,       NULL,       0,            1,           -1 },
+	/* class            instance    title       tags mask     isfloating   monitor */
+	{ "Gimp",           NULL,       NULL,       0,            0,           -1 },
+	{ "Firefox",        NULL,       NULL,       0,            0,           -1 },
+	{ "ssh-askpass",    NULL,       NULL,       0,            1,           -1 },
 };
 
 /* layout(s) */
@@ -50,7 +50,7 @@ static const Layout layouts[] = {
 	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
 	{ MODKEY|ShiftMask,             KEY,      tag,            {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} },
-#define HOLDKEY 0xffeb // replace 0 with keysym to activate holdbar
+#define HOLDKEY 0xffe4 // replace 0 with keysym to activate holdbar
 
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
@@ -60,7 +60,7 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "rofi", "-show", "drun", NULL };
 static const char *termcmd[]  = { "x-terminal-emulator", NULL };
 
-static const char *calculator[]     = { "x-terminal-emulator", "-e", "qalc", NULL };
+static const char *calculator[]     = { "x-terminal-emulator", "qalc", NULL };
 static const char *comptontgl[]     = { "toggle-compton", NULL };
 static const char *dwmreset[]       = { "restart-dwm", NULL };
 static const char *filecmd[]        = { "x-terminal-emulator", "-e", "ranger", NULL };
@@ -126,7 +126,8 @@ static Key keys[] = {
 	TAGKEYS(                        XK_7,                      6)
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
-	{ 0,				HOLDKEY,   holdbar,	   {0} },
+	{ 0,            				HOLDKEY,   holdbar,	        {0} },
+    { MODKEY|ShiftMask,             XK_q,       quit,           {0} },
 	/* app launchers */
     { MODKEY,                       XK_a,      spawn,          {.v = volman } },
     { MODKEY,                       XK_c,      spawn,          {.v = calculator } },
