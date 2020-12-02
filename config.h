@@ -81,6 +81,7 @@ static const char *searchmenu[]     = { "selsearchmenu", NULL };
 static const char *settings[]       = { "lxqt-config", NULL };
 static const char *volman[]         = { "x-terminal-emulator", "-e", "pulsemixer", NULL };
 static const char *webmenu[]        = { "dmenu_websearch", NULL };
+static const char *wwwbrowser[]     = { "x-www-browser", NULL };
 
 static const char *upvol[]          = {"pulsemixer", "--change-volume", "+10", NULL };
 static const char *dovol[]          = {"pulsemixer", "--change-volume", "-10", NULL };
@@ -153,7 +154,7 @@ static Key keys[] = {
 
     { 0,                            XF86XK_Calculator,          spawn, {.v = termcmd } },
     { 0,                            XF86XK_HomePage,            spawn, {.v = fileman } },
-    { 0,                            XF86XK_Tools,               spawn, {.v = musicp } },
+    { 0,                            XF86XK_Tools,               spawn, {.v = wwwbrowser } },
     { 0,                            XF86XK_Mail,                spawn, {.v = mailman } },
     { 0,                            XF86XK_Search,              spawn, {.v = webmenu } },
 
