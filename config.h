@@ -5,7 +5,7 @@ static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 5;       /* snap pixel */
 static const int showbar            = 0;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "Fira Code:size=9" };
+static const char *fonts[]          = { "Lato:size=9" };
 static const char col_gray1[]       = "#000000";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
@@ -14,7 +14,7 @@ static const char col_cyan[]        = "#300a24";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { "#ffffff", col_gray1, col_gray2 },
-	[SchemeSel]  = { "#ffffff", "#300a24",  "#dd722e"  },
+	[SchemeSel]  = { "#ffffff", "#1a1e21",  "#dd722e"  },
 	[SchemeHid]  = { "#ff0000",  col_gray1, col_cyan  },
 };
 
@@ -30,6 +30,7 @@ static const Rule rules[] = {
 	{ "Gimp",           NULL,       NULL,       0,            0,           -1 },
 	{ "Firefox",        NULL,       NULL,       0,            0,           -1 },
 	{ "ssh-askpass",    NULL,       NULL,       0,            1,           -1 },
+	{ "XCalc",          NULL,       NULL,       0,            1,           -1 },
 };
 
 /* layout(s) */
@@ -57,7 +58,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "rofi", "-show", "drun", NULL };
+static const char *dmenucmd[] = { "j4-dmenu-desktop", NULL };
 static const char *termcmd[]  = { "x-terminal-emulator", NULL };
 
 static const char *calculator[]     = { "x-terminal-emulator", "qalc", NULL };
@@ -76,7 +77,6 @@ static const char *musicp[]         = { "x-terminal-emulator", "-e", "ncmpcpp", 
 static const char *netman[]         = { "x-terminal-emulator", "-e", "nmtui", NULL };
 static const char *pasmenu[]        = { "passmenu", NULL };
 static const char *procman[]        = { "x-terminal-emulator", "-e", "htop", NULL };
-static const char *roficmd[]        = { "rofi", "-show", "drun", NULL };
 static const char *screensh[]       = { "flameshot", "gui", NULL };
 static const char *searchmenu[]     = { "selsearchmenu", NULL };
 static const char *settings[]       = { "lxqt-config", NULL };
@@ -147,7 +147,6 @@ static Key keys[] = {
     { MODKEY,                       XK_Delete, spawn,          {.v = locker } },
     { MODKEY,                       XK_BackSpace, spawn,       {.v = killcmd } },
     { MODKEY,                       XK_Escape, spawn,          {.v = leave } },
-    { Mod1Mask,                     XK_space,  spawn,          {.v = roficmd } },
     { ControlMask,                  XK_Escape, spawn,          {.v = settings } },
     { ControlMask|ShiftMask,        XK_Escape, spawn,          {.v = procman } },
     { 0,                            XK_Print,  spawn,          {.v = screensh } },
