@@ -63,7 +63,7 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "j4-dmenu-desktop", NULL };
 static const char *termcmd[]  = { "x-terminal-emulator", NULL };
 
-static const char *calculator[]     = { "x-terminal-emulator", "qalc", NULL };
+static const char *calculator[]     = { "kcalc", NULL };
 static const char *comptontgl[]     = { "toggle-compton", NULL };
 static const char *dwmreset[]       = { "restart-dwm", NULL };
 static const char *filecmd[]        = { "x-terminal-emulator", "-e", "ranger", NULL };
@@ -84,7 +84,7 @@ static const char *searchmenu[]     = { "selsearchmenu", NULL };
 static const char *settings[]       = { "lxqt-config", NULL };
 static const char *volman[]         = { "x-terminal-emulator", "-e", "pulsemixer", NULL };
 static const char *webmenu[]        = { "dmenu_websearch", NULL };
-static const char *wwwbrowser[]     = { "x-www-browser", NULL };
+// static const char *wwwbrowser[]     = { "x-www-browser", NULL };
 
 static const char *upvol[]          = {"pulsemixer", "--change-volume", "+10", NULL };
 static const char *dovol[]          = {"pulsemixer", "--change-volume", "-10", NULL };
@@ -136,7 +136,6 @@ static Key keys[] = {
     { MODKEY|ShiftMask,             XK_q,       quit,           {0} },
 	/* app launchers */
     { MODKEY,                       XK_a,      spawn,          {.v = volman } },
-    { MODKEY,                       XK_c,      spawn,          {.v = calculator } },
     { MODKEY,                       XK_e,      spawn,          {.v = fileman } },
     { MODKEY|ShiftMask,             XK_e,      spawn,          {.v = filecmd } },
     { MODKEY|ShiftMask,             XK_r,      spawn,          {.v = dwmreset} },
@@ -159,7 +158,7 @@ static Key keys[] = {
 
     { 0,                            XF86XK_Calculator,          spawn, {.v = termcmd } },
     { 0,                            XF86XK_HomePage,            spawn, {.v = fileman } },
-    { 0,                            XF86XK_Tools,               spawn, {.v = wwwbrowser } },
+    { 0,                            XF86XK_Tools,               spawn, {.v = calculator } },
     { 0,                            XF86XK_Mail,                spawn, {.v = mailman } },
     { 0,                            XF86XK_Search,              spawn, {.v = webmenu } },
 
