@@ -62,6 +62,8 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "j4-dmenu-desktop", NULL };
 static const char *termcmd[]  = { "x-terminal-emulator", NULL };
+static const char scratchpadname[] = "scratchpad";
+static const char *scratchpadcmd[] = { "x-terminal-emulator", "-t", scratchpadname, NULL };
 
 static const char *calculator[]     = { "kcalc", NULL };
 static const char *comptontgl[]     = { "toggle-compton", NULL };
@@ -82,6 +84,7 @@ static const char *procman[]        = { "x-terminal-emulator", "-e", "htop", NUL
 static const char *screensh[]       = { "flameshot", "gui", NULL };
 static const char *searchmenu[]     = { "selsearchmenu", NULL };
 static const char *settings[]       = { "lxqt-config", NULL };
+static const char *tmuxsessions[]   = { "dmenux", NULL };
 static const char *volman[]         = { "x-terminal-emulator", "-e", "pulsemixer", NULL };
 static const char *webmenu[]        = { "dmenu_websearch", NULL };
 // static const char *wwwbrowser[]     = { "x-www-browser", NULL };
@@ -100,6 +103,7 @@ static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_space,  spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
+	{ MODKEY,                       XK_grave,  togglescratch,  {.v = scratchpadcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = -1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = +1 } },
@@ -145,7 +149,7 @@ static Key keys[] = {
     { MODKEY,                       XK_s,      spawn,          {.v = searchmenu } },
     { MODKEY,                       XK_u,      spawn,          {.v = musicp } },
     { MODKEY,                       XK_v,      spawn,          {.v = vpnmenu } },
-    { MODKEY,                       XK_w,      spawn,          {.v = webmenu } },
+    { MODKEY,                       XK_w,      spawn,          {.v = tmuxsessions } },
     { MODKEY,                       XK_F1,     spawn,          {.v = helpmenu } },
     { MODKEY,                       XK_Delete, spawn,          {.v = locker } },
     { MODKEY,                       XK_BackSpace, spawn,       {.v = killcmd } },
@@ -170,6 +174,8 @@ static Key keys[] = {
     { 0,                            XF86XK_AudioPlay,           spawn, {.v = mediatoggle } },
     { 0,                            XF86XK_AudioNext,           spawn, {.v = medianext } },
 
+    { ShiftMask,                    XF86XK_AudioLowerVolume,    spawn, {.v = mediaprev} },
+    { ShiftMask,                    XF86XK_AudioRaiseVolume,    spawn, {.v = medianext } },
 };
 
 /* button definitions */
