@@ -5,17 +5,17 @@ static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 5;       /* snap pixel */
 static const int showbar            = 0;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "Lato:size=9" };
-static const char col_gray1[]       = "#000000";
-static const char col_gray2[]       = "#444444";
+static const char *fonts[]          = { "Linux Biolinum:size=12:antialias=true:autohint=true" };
+static const char col_gray1[]       = "#3c3836";
+static const char col_gray2[]       = "#1d2021";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
 static const char col_cyan[]        = "#300a24";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
-	[SchemeNorm] = { "#ffffff", col_gray1, col_gray2 },
-	[SchemeSel]  = { "#ffffff", "#1a1e21",  "#dd722e"  },
-	[SchemeHid]  = { "#ff0000",  col_gray1, col_cyan  },
+	[SchemeNorm] = { "#ebdbb2", col_gray1, col_gray2 },
+	[SchemeSel]  = { "#ebdbb2", "#282828",  "#98971a"  },
+	[SchemeHid]  = { "#cc241d",  col_gray1, col_cyan  },
 };
 
 /* tagging */
@@ -60,16 +60,15 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "j4-dmenu-desktop", NULL };
+static const char *dmenucmd[] = { "dmenu_run", NULL };
 static const char *termcmd[]  = { "x-terminal-emulator", NULL };
 static const char scratchpadname[] = "scratchpad";
 static const char *scratchpadcmd[] = { "x-terminal-emulator", "-t", scratchpadname, NULL };
 
-static const char *calculator[]     = { "kcalc", NULL };
-static const char *comptontgl[]     = { "toggle-compton", NULL };
+static const char *calculator[]     = { "xcalc", NULL };
 static const char *dwmreset[]       = { "restart-dwm", NULL };
-static const char *filecmd[]        = { "x-terminal-emulator", "-e", "ranger", NULL };
-static const char *fileman[]        = { "pcmanfm-qt", NULL };
+static const char *filecmd[]        = { "x-terminal-emulator", "-e", "nnn", NULL };
+static const char *fileman[]        = { "pcmanfm", NULL };
 static const char *helpmenu[]       = { "dmenu_man", NULL };
 static const char *vpnmenu[]       = { "dmenu_nordvpn", NULL };
 static const char *killcmd[]        = { "xkill", NULL };
@@ -83,7 +82,7 @@ static const char *pasmenu[]        = { "passmenu", NULL };
 static const char *procman[]        = { "x-terminal-emulator", "-e", "htop", NULL };
 static const char *screensh[]       = { "flameshot", "gui", NULL };
 static const char *searchmenu[]     = { "selsearchmenu", NULL };
-static const char *settings[]       = { "lxqt-config", NULL };
+static const char *settings[]       = { "lxappearance", NULL };
 static const char *tmuxsessions[]   = { "dmenux", NULL };
 static const char *volman[]         = { "x-terminal-emulator", "-e", "pulsemixer", NULL };
 static const char *webmenu[]        = { "dmenu_websearch", NULL };
@@ -157,8 +156,6 @@ static Key keys[] = {
     { ControlMask,                  XK_Escape, spawn,          {.v = settings } },
     { ControlMask|ShiftMask,        XK_Escape, spawn,          {.v = procman } },
     { 0,                            XK_Print,  spawn,          {.v = screensh } },
-
-    { MODKEY,                       XK_F12,    spawn,          {.v = comptontgl } },
 
     { 0,                            XF86XK_Calculator,          spawn, {.v = termcmd } },
     { 0,                            XF86XK_HomePage,            spawn, {.v = fileman } },
