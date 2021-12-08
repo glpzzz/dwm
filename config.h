@@ -5,17 +5,17 @@ static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 5;       /* snap pixel */
 static const int showbar            = 0;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "Linux Biolinum:size=12:antialias=true:autohint=true" };
-static const char col_gray1[]       = "#3c3836";
+static const char *fonts[]          = { "Fira Sans:size=13:antialias=true:autohint=true" };
+static const char col_gray1[]       = "#073642";
 static const char col_gray2[]       = "#1d2021";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
 static const char col_cyan[]        = "#300a24";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
-	[SchemeNorm] = { "#ebdbb2", col_gray1, col_gray2 },
-	[SchemeSel]  = { "#ebdbb2", "#282828",  "#98971a"  },
-	[SchemeHid]  = { "#cc241d",  col_gray1, col_cyan  },
+	[SchemeNorm] = { "#eee8d5", col_gray1, col_gray1 },
+	[SchemeSel]  = { "#eee8d5", "#002b36",  "#b58900"  },
+	[SchemeHid]  = { "#dc322f",  col_gray1, col_gray1  },
 };
 
 /* tagging */
