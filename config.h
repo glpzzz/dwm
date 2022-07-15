@@ -109,8 +109,6 @@ static const char *searchmenu[] = {"selsearchmenu", NULL};
 static const char *settings[] = {"lxappearance", NULL};
 static const char *tmuxsessions[] = {"dmenux", NULL};
 static const char *volman[] = {"x-terminal-emulator", "-e", "pulsemixer", NULL};
-static const char *webmenu[] = {"dmenu_websearch", NULL};
-// static const char *wwwbrowser[]     = { "x-www-browser", NULL };
 
 static const char *upvol[] = {"pulsemixer", "--change-volume", "+10", NULL};
 static const char *dovol[] = {"pulsemixer", "--change-volume", "-10", NULL};
@@ -183,7 +181,7 @@ static Key keys[] = {
         {0, XF86XK_HomePage, spawn, {.v = fileman}},
         {0, XF86XK_Tools, spawn, {.v = calculator}},
         {0, XF86XK_Mail, spawn, {.v = mailman}},
-        {0, XF86XK_Search, spawn, {.v = webmenu}},
+        {0, XF86XK_Search, spawn, {.v = searchmenu}},
 
         {0, XF86XK_AudioLowerVolume, spawn, {.v = dovol}},
         {0, XF86XK_AudioRaiseVolume, spawn, {.v = upvol}},
