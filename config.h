@@ -29,12 +29,18 @@ static const Rule rules[] = {
          *	WM_CLASS(STRING) = instance, class
          *	WM_NAME(STRING) = title
          */
-        /* class      instance    title       tags mask     isfloating   monitor */
-        {"Gimp",            NULL, NULL,     0, 0, -1},
-        {"Firefox",         NULL, NULL,     0, 0, -1},
-        {"ssh-askpass",     NULL, NULL,     0, 1, -1},
-        {"XCalc",           NULL, NULL,     0, 1, -1},
-        {"jetbrains-clion", NULL, "splash", 0, 1, -1},
+        /* class      instance    title tags mask           isfloating   monitor */
+        {"Gimp",            NULL, NULL,                     0,      0, -1},
+        {"Firefox",         NULL, NULL,                     0,      0, -1},
+        {"ssh-askpass",     NULL, NULL,                     0,      1, -1},
+        {"XCalc",           NULL, NULL,                     0,      1, -1},
+        {"jetbrains-clion", NULL, "splash",                 0,      1, -1},
+        {NULL,              NULL, "zoom ",                  1<<7,   1, -1},
+        {NULL,              NULL, "Zoom Meeting",           1<<7,   0, -1},
+        {NULL,              NULL, "Zoom Cloud Meetings",    1<<7,   0, -1},
+        {"Thunderbird",     NULL, NULL,                     1<<6,   0, -1},
+        {"TelegramDesktop", NULL, NULL,                     2,      0, -1},
+        {"Skype",           NULL, NULL,                     2,      0, -1},
 };
 
 /* layout(s) */
