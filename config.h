@@ -70,7 +70,7 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = {"dmenu_run", NULL};
-static const char *termcmd[] = {"x-terminal-emulator", "-e", "tmux", NULL};
+static const char *termcmd[] = {"x-terminal-emulator", NULL};
 static const char scratchpadname[] = "scratchpad";
 static const char *scratchpadcmd[] = {"x-terminal-emulator", "-t", scratchpadname, "-g", "120x34", NULL};
 
