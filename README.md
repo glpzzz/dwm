@@ -1,15 +1,37 @@
 dwm - dynamic window manager
 ============================
+
 dwm is an extremely fast, small, and dynamic window manager for X.
 
+**This is my personal build.** Every branch on the repo is dwm patched with an one of the patches I find useful.
+
+Master branch is in sync with the original dwm project at
+https://git.suckless.org/dwm
+
+Single patched branches
+-----------------------
+
+- [awesomebar](https://dwm.suckless.org/patches/awesomebar)
+- [focusonclick](https://dwm.suckless.org/patches/focusonclick/)
+- [holdbar-modkey](https://dwm.suckless.org/patches/holdbar/)
+- [killunsel](https://dwm.suckless.org/patches/killunsel/)
+- [noborder](https://dwm.suckless.org/patches/noborder/)
+- [pertag](https://dwm.suckless.org/patches/pertag/)
+
+My custom build
+---------------
+
+The branch **patched2** is the result of merging the original dwm with the
+patched versions. 
 
 Requirements
 ------------
 In order to build dwm you need the Xlib header files.
 
 
-Installation
-------------
+Build
+-----
+
 Edit config.mk to match your local setup (dwm is installed into
 the /usr/local namespace by default).
 
