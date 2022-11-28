@@ -7,6 +7,8 @@ static unsigned int gappx     = 10;       /* default gap between windows in pixe
 static unsigned int snap      = 32;       /* snap pixel */
 static int showbar            = 1;        /* 0 means no bar */
 static int topbar             = 1;        /* 0 means bottom bar */
+static const int splitstatus        = 1;        /* 1 for split status items */
+static const char *splitdelim        = ";";       /* Character used for separating status */
 static char font[]            = "monospace:size=10";
 static char dmenufont[]       = "monospace:size=10";
 static const char *fonts[]          = { font, "Fira Code Nerd Font:pixelsize=19" };
