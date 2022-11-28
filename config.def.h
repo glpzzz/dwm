@@ -9,7 +9,7 @@ static int showbar            = 1;        /* 0 means no bar */
 static int topbar             = 1;        /* 0 means bottom bar */
 static char font[]            = "monospace:size=10";
 static char dmenufont[]       = "monospace:size=10";
-static const char *fonts[]          = { font };
+static const char *fonts[]          = { font, "Fira Code Nerd Font:pixelsize=19" };
 static char normbgcolor[]           = "#222222";
 static char normbordercolor[]       = "#444444";
 static char normfgcolor[]           = "#bbbbbb";
@@ -57,8 +57,8 @@ static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen win
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "[]=",      tile },    /* first entry is default */
-	{ "[M]",      monocle },
+	{ "\uEBEB",      tile },    /* first entry is default */
+	{ "\uEB4C",      monocle },
 };
 
 /* key definitions */
