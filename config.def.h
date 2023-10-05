@@ -5,6 +5,11 @@ static unsigned int borderpx  = 1;        /* border pixel of windows */
 static int startwithgaps	     = 0;	 /* 1 means gaps are used by default */
 static unsigned int gappx     = 10;       /* default gap between windows in pixels */
 static unsigned int snap      = 32;       /* snap pixel */
+static const unsigned int systraypinning = 1;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
+static const unsigned int systrayonleft = 0;    /* 0: systray in the right corner, >0: systray on left of status text */
+static const unsigned int systrayspacing = 2;   /* systray spacing */
+static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display systray on the first monitor, False: display systray on the last monitor*/
+static const int showsystray        = 1;        /* 0 means no systray */
 static int showbar            = 1;        /* 0 means no bar */
 static int topbar             = 1;        /* 0 means bottom bar */
 static const int splitstatus        = 1;        /* 1 for split status items */
@@ -153,6 +158,7 @@ static const Button buttons[] = {
 	/* click                event mask      button          function        argument */
 	{ ClkLtSymbol,          0,                  Button1,        setlayout,      {0} },
 	{ ClkWinTitle,          0,                  Button2,        zoom,           {0} },
+    { ClkStatusText,        0,                  Button2,        spawn,          {.v = dmenucmd } },
 	{ ClkClientWin,         MODKEY,             Button1,        movemouse,      {0} },
 	{ ClkClientWin,         MODKEY,             Button2,        togglefloating, {0} },
 	{ ClkClientWin,         MODKEY,             Button3,        resizemouse,    {0} },
