@@ -913,7 +913,7 @@ drawbar(Monitor *m)
     if (splitstatus) {
         mstext = strsep(&rstext, splitdelim);
         msx = (m->ww - TEXTW(mstext) + lrpad) / 2; /* x position of middle status text */
-        drw_text(drw, msx-stw, 0, TEXTW(mstext) - lrpad, bh, 0, mstext, 0);
+        drw_text(drw, msx-stw/2, 0, TEXTW(mstext) - lrpad, bh, 0, mstext, 0);
     }
     tw = TEXTW(rstext) - lrpad + 2; /* 2px right padding */
     drw_text(drw, m->ww - tw-stw, 0, tw, bh, 0, rstext, 0);
