@@ -906,19 +906,17 @@ drawbar(Monitor *m)
 	drw_setscheme(drw, scheme[SchemeNorm]);
 	x = drw_text(drw, x, 0, w, bh, lrpad / 2, m->ltsymbol, 0);
 
-    drw_setscheme(drw, scheme[m == selmon ? SchemeSel : SchemeNorm]);
-    drw_text(drw, x, 0, w, bh, lrpad / 2, m->sel->name, 0);
+    drw_setscheme(drw, scheme[SchemeNorm]);
+    drw_rect(drw, x, 0, m->ww - x, bh, 1, 1);
 
-    if (m == selmon) { /* status is only drawn on selected monitor */
-        rstext = strdup(stext);
-        if (splitstatus) {
-            mstext = strsep(&rstext, splitdelim);
-            msx = (m->ww - TEXTW(mstext) + lrpad) / 2; /* x position of middle status text */
-            drw_text(drw, msx, 0, TEXTW(mstext) - lrpad, bh, 0, mstext, 0);
-        }
-        tw = TEXTW(rstext) - lrpad + 2; /* 2px right padding */
-        drw_text(drw, m->ww - tw, 0, tw, bh, 0, rstext, 0);
+    rstext = strdup(stext);
+    if (splitstatus) {
+        mstext = strsep(&rstext, splitdelim);
+        msx = (m->ww - TEXTW(mstext) + lrpad) / 2; /* x position of middle status text */
+        drw_text(drw, msx-stw, 0, TEXTW(mstext) - lrpad, bh, 0, mstext, 0);
     }
+    tw = TEXTW(rstext) - lrpad + 2; /* 2px right padding */
+    drw_text(drw, m->ww - tw-stw, 0, tw, bh, 0, rstext, 0);
 
 	drw_map(drw, m->barwin, 0, 0, m->ww - stw, bh);
 }
