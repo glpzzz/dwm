@@ -20,13 +20,15 @@ static const char *fonts[]          = { font, "Fira Code Nerd Font:pixelsize=19"
 static char normbgcolor[]           = "#222222";
 static char normbordercolor[]       = "#444444";
 static char normfgcolor[]           = "#bbbbbb";
+static char normfloatbordercolor[]  = "#bbbbbb";
 static char selfgcolor[]            = "#eeeeee";
 static char selbordercolor[]        = "#005577";
 static char selbgcolor[]            = "#005577";
-static char *colors[][3] = {
-        /*               fg           bg           border   */
-        [SchemeNorm] = { normfgcolor, normbgcolor, normbordercolor },
-        [SchemeSel]  = { selfgcolor,  selbgcolor,  selbordercolor  },
+static char selfloatbordercolor[]   = "#eeeeee";
+static char *colors[][4] = {
+        /*               fg           bg           border           float border */
+        [SchemeNorm] = { normfgcolor, normbgcolor, normbordercolor, normfloatbordercolor },
+        [SchemeSel]  = { selfgcolor,  selbgcolor,  selbordercolor,  selfloatbordercolor  },
 };
 
 /* tagging */
@@ -89,23 +91,25 @@ static const char *dmenucmd[] = { "dmenu_run", NULL };
  * Xresources preferences to load at startup
  */
 ResourcePref resources[] = {
-		{ "font",               STRING,  &font },
-		{ "dmenufont",          STRING,  &dmenufont },
-		{ "normbgcolor",        STRING,  &normbgcolor },
-		{ "normbordercolor",    STRING,  &normbordercolor },
-		{ "normfgcolor",        STRING,  &normfgcolor },
-		{ "selbgcolor",         STRING,  &selbgcolor },
-		{ "selbordercolor",     STRING,  &selbordercolor },
-		{ "selfgcolor",         STRING,  &selfgcolor },
-		{ "borderpx",          	INTEGER, &borderpx },
-        { "startwithgaps",      INTEGER, &startwithgaps },
-        { "gappx",          	INTEGER, &gappx },
-		{ "snap",          		INTEGER, &snap },
-		{ "showbar",          	INTEGER, &showbar },
-		{ "topbar",          	INTEGER, &topbar },
-		{ "nmaster",          	INTEGER, &nmaster },
-		{ "resizehints",       	INTEGER, &resizehints },
-		{ "mfact",      	 	FLOAT,   &mfact },
+		{ "font",                   STRING,  &font },
+		{ "dmenufont",              STRING,  &dmenufont },
+		{ "normbgcolor",            STRING,  &normbgcolor },
+		{ "normbordercolor",        STRING,  &normbordercolor },
+		{ "normfgcolor",            STRING,  &normfgcolor },
+        { "normfloatbordercolor",   STRING,  &normfloatbordercolor },
+		{ "selbgcolor",             STRING,  &selbgcolor },
+		{ "selbordercolor",         STRING,  &selbordercolor },
+		{ "selfgcolor",             STRING,  &selfgcolor },
+        { "selfloatbordercolor",    STRING,  &selfloatbordercolor },
+		{ "borderpx",          	    INTEGER, &borderpx },
+        { "startwithgaps",          INTEGER, &startwithgaps },
+        { "gappx",          	    INTEGER, &gappx },
+		{ "snap",          		    INTEGER, &snap },
+		{ "showbar",          	    INTEGER, &showbar },
+		{ "topbar",          	    INTEGER, &topbar },
+		{ "nmaster",          	    INTEGER, &nmaster },
+		{ "resizehints",       	    INTEGER, &resizehints },
+		{ "mfact",      	 	    FLOAT,   &mfact },
 };
 
 static Key keys[] = {
