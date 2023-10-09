@@ -2,6 +2,7 @@
 
 /* appearance */
 static unsigned int borderpx  = 1;        /* border pixel of windows */
+static const unsigned int fborderpx = 1;        /* border pixel of floating windows */
 static int startwithgaps	     = 0;	 /* 1 means gaps are used by default */
 static unsigned int gappx     = 10;       /* default gap between windows in pixels */
 static unsigned int snap      = 32;       /* snap pixel */
@@ -102,6 +103,7 @@ ResourcePref resources[] = {
 		{ "selfgcolor",             STRING,  &selfgcolor },
         { "selfloatbordercolor",    STRING,  &selfloatbordercolor },
 		{ "borderpx",          	    INTEGER, &borderpx },
+        { "fborderpx",              INTEGER, &fborderpx },
         { "startwithgaps",          INTEGER, &startwithgaps },
         { "gappx",          	    INTEGER, &gappx },
 		{ "snap",          		    INTEGER, &snap },
@@ -174,4 +176,3 @@ static const Button buttons[] = {
 	{ ClkTagBar,            MODKEY,             Button1,        tag,            {0} },
 	{ ClkTagBar,            MODKEY,             Button3,        toggletag,      {0} },
 };
-
