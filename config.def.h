@@ -2,7 +2,7 @@
 
 /* appearance */
 static unsigned int borderpx  = 1;        /* border pixel of windows */
-static const unsigned int fborderpx = 1;        /* border pixel of floating windows */
+static unsigned int fborderpx = 1;        /* border pixel of floating windows */
 static int startwithgaps	     = 0;	 /* 1 means gaps are used by default */
 static unsigned int gappx     = 10;       /* default gap between windows in pixels */
 static unsigned int snap      = 32;       /* snap pixel */
