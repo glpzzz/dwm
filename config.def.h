@@ -45,6 +45,7 @@ static const Rule rules[] = {
         {"Firefox",             NULL,       NULL,                   0,          0,          -1},
         {"ssh-askpass",         NULL,       NULL,                   0,          1,          -1},
         {"XCalc",               NULL,       NULL,                   0,          1,          -1},
+        {"kcalc",               NULL,       NULL,                   0,          1,          -1},
         {"jetbrains-clion",     NULL,       "splash",               0,          1,          -1},
         {"jetbrains-idea",      NULL,       "splash",               0,          1,          -1},
         {"jetbrains-phpstorm",  NULL,       "splash",               0,          1,          -1},
