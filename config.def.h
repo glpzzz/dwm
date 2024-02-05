@@ -13,6 +13,7 @@ static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display 
 static const int showsystray        = 1;        /* 0 means no systray */
 static int showbar            = 1;        /* 0 means no bar */
 static int topbar             = 1;        /* 0 means bottom bar */
+static int user_bh            = 2;        /* 2 is the default spacing around the bar's font */
 static const int splitstatus        = 1;        /* 1 for split status items */
 static const char *splitdelim        = ";";       /* Character used for separating status */
 static char font[]            = "monospace:size=10";
@@ -110,6 +111,7 @@ ResourcePref resources[] = {
 		{ "snap",          		    INTEGER, &snap },
 		{ "showbar",          	    INTEGER, &showbar },
 		{ "topbar",          	    INTEGER, &topbar },
+        { "user_bh",          	    INTEGER, &user_bh },
 		{ "nmaster",          	    INTEGER, &nmaster },
 		{ "resizehints",       	    INTEGER, &resizehints },
 		{ "mfact",      	 	    FLOAT,   &mfact },
